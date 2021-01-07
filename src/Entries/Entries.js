@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Edit from '../Edit-Form/Edit'
 import {Link} from 'react-router-dom'
-import MindfulQuote from '../MindfulMoment/mindful'
 
 
 const EntryBody = props => {

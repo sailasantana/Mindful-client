@@ -6,7 +6,6 @@ import Login from './Login/Login'
 import SignUp from './Login/SignUp'
 import { Route } from 'react-router-dom'
 import Edit from './Edit-Form/Edit'
-import MindfulQuote from './MindfulMoment/mindful';
 
 class App extends Component {
   state = {

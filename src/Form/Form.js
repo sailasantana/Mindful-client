@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import MindfulQuote from '../MindfulMoment/mindful'
+import Mindful from '../MindfulMoment/mindful-store'
 
 class Form extends Component {
+
+
     constructor(props) {
         super(props)
 
         this.initialState = {
             title: '',
             body: '',
-            submitted: false
+            submitted: false,
+            clicked : false
         }
+
+
 
         this.state = this.initialState
     }
-
     handleChange = event => {
         const {name, value } = event.target 
 
@@ -22,7 +26,6 @@ class Form extends Component {
 
         })
     }
-
     submitForm = (event) => {
         event.preventDefault()
         this.props.handleSubmit(this.state)
@@ -32,8 +35,16 @@ class Form extends Component {
 
     }
 
+    handleClick = () => {
+        this.setState({submitted: false})
+    }
+
+
+
     render() {
         const {title, body } = this.state;
+        const quote = Mindful[0]
+
 
         return (
             <div>
@@ -57,7 +68,15 @@ class Form extends Component {
                             onChange={this.handleChange} />
                 </form>
                 <button onClick={this.submitForm}>Submit</button>
-                <div className = "mindful-quotes"> {this.state.submitted ? <MindfulQuote /> : null}</div>
+                <div className = "mindful-quotes"> 
+                {this.state.submitted ? 
+                 <div>
+                 <h2>Good job getting a Mindful Moment in! 
+                      </h2>
+                 <p>"{quote}"</p>
+                 <button onClick = {this.handleClick}>x</button>
+ 
+             </div> : null}</div>
             </div>
         )
     }
