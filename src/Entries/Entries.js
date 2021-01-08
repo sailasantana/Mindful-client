@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Edit from '../Edit-Form/Edit'
 import {Link} from 'react-router-dom'
 
@@ -9,7 +9,7 @@ const EntryBody = props => {
             <div key={index}>
                 <h2>{line.title}</h2>
                 <p>{line.body}</p>
-                <button onClick={() => props.removeEntry(index)}>Delete</button>
+                <button onClick={() => props.removePost(index)}>Delete</button>
                 <Link to ='./edit'>Edit</Link>
             </div>
         )
@@ -22,20 +22,20 @@ const EntryBody = props => {
     )
 }
 
-const Entries = (props) => {
+const Posts = (props) => {
     
-        const { entryData, removeEntry } = props;
+        const { entryData, removePost } = props;
 
         return (
             <div>
                 <h2>My Entries</h2>
                
                 
-                <EntryBody entryData={entryData} removeEntry={removeEntry}/>
+                <EntryBody entryData={entryData} removePost={removePost}/>
             </div>
 
         )
     
 }
 
-export default Entries
+export default Posts
