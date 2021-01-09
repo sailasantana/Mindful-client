@@ -6,6 +6,7 @@ export default React.createContext({
     user_name : '',
     addPost: () => {},
     updatePost : () => {},
-    deletePost: () => {}
+    deletePost: () => {},
+    updatePostsInState: () => {}
 
 })

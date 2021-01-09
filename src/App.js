@@ -17,29 +17,36 @@ class App extends Component {
     user_name:''
   }
 
-  componentDidMount(){
-    //check for login credentials
-    if(!TokenService.getAuthToken()){
-      return;
-    }
-    fetch(`${config.API_ENDPOINT}/api/${this.state.user_name}`, {
-      headers: {
-        'authorization':`bearer ${TokenService.getAuthToken()}`
-      }
-    })
-    .then(res => {
-      if(!res.ok){
-        return res.json().then(e => Promise.reject(e))
-      }
-      return res.json()
-    })
-    .then(posts => {
-      this.setState({posts})
-    })
-    .catch(error => {
-      alert({error})
-    })
-   }
+  // componentDidMount(){
+
+  //   //check for login credentials
+  //   if(!TokenService.getAuthToken()){
+  //     return;
+  //   }
+  //   console.log(this.state.user_name)
+
+  //   fetch(`${config.API_ENDPOINT}/api/${this.state.user_name}`, {
+  //     headers: {
+  //       'authorization':`bearer ${TokenService.getAuthToken()}`
+  //     }
+  //   })
+  //   .then(res => {
+  //     if(!res.ok){
+  //       return res.json().then(e => Promise.reject(e))
+  //     }
+  //     return res.json()
+  //   })
+  //   .then(posts => {
+  //     this.setState({posts})
+  //   })
+  //   .catch(error => {
+  //     alert({error})
+  //   })
+  //  }
+
+  updatePostsInState = posts => {
+    this.setState({posts : posts})
+  }
  
    setUserName = user_name => {
      this.setState({user_name: user_name})
@@ -79,6 +86,7 @@ class App extends Component {
       deletePost: this.removePost,
       updatePost: this.handleUpdate,
       setUserName: this.setUserName,
+      updatePostsInState: this.updatePostsInState,
       user_name: this.state.user_name
 
     }

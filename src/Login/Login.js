@@ -1,9 +1,10 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import AuthApiService from '../Auth-Service/api-auth-service';
 import TokenService from '../Auth-Service/token-services';
 import journalContext from '../journal-context';
-import SignUp from './SignUp'
+//import SignUp from './SignUp'
+import config from '../config'
 
 
 export default class LoginPage extends React.Component {
@@ -16,7 +17,10 @@ export default class LoginPage extends React.Component {
 
    constructor(props){
        super(props);
-       this.state  = {error : null};
+       this.state  = {
+           error : null,
+           posts : []
+    };
    }
 
    //handle login auth and validation upon form submission
@@ -33,16 +37,39 @@ export default class LoginPage extends React.Component {
            password : return_pass.value
        })
        .then(res => {
+        if(res.ok){
+        
+            this.context.setUserName(return_user.value)
+           }
            return_user.value = '';
            return_pass.value = '';
            TokenService.saveAuthToken(res.authToken);
            this.props.onvalidLogin();
+           console.log('bc')
 
-           if(res.ok){
-            this.context.setUserName(return_user.value)
-            
+           
+            console.log('abc')
+            fetch(`${config.API_ENDPOINT}/api/${return_user.value}`, {
+                headers: {
+                  'authorization':`bearer ${TokenService.getAuthToken()}`
+                }
+              })
+              .then(res => {
+                if(!res.ok){
+                  return res.json().then(e => Promise.reject(e))
+                }
+                return res.json()
+              })
+              .then(posts => {
+                this.context.updatePostsInState(posts)
+              })
+              .catch(error => {
+                alert({error})
+              })
+             
 
-           }
+
+           
        })
        .then(() => {
            window.location = '/dashboard';
@@ -52,6 +79,10 @@ export default class LoginPage extends React.Component {
                error: alert("Invalid username or password. Please re-enter your credentials.")
            })
        })
+
+   }
+
+   setPosts = (posts) => {
 
    }
 
