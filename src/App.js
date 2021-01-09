@@ -18,57 +18,57 @@ class App extends Component {
   }
 
   componentDidMount(){
-   //check for login credentials
-   if(!TokenService.getAuthToken()){
-     return;
+    //check for login credentials
+    if(!TokenService.getAuthToken()){
+      return;
+    }
+    fetch(`${config.API_ENDPOINT}/api/${this.state.user_name}`, {
+      headers: {
+        'authorization':`bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok){
+        return res.json().then(e => Promise.reject(e))
+      }
+      return res.json()
+    })
+    .then(posts => {
+      this.setState({posts})
+    })
+    .catch(error => {
+      alert({error})
+    })
    }
-   fetch(`${config.API_ENDPOINT}/api/${this.state.user_name}`, {
-     headers: {
-       'authorization':`bearer ${TokenService.getAuthToken()}`
-     }
-   })
-   .then(res => {
-     if(!res.ok){
-       return res.json().then(e => Promise.reject(e))
-     }
-     return res.json()
-   })
-   .then(posts => {
-     this.setState({posts})
-   })
-   .catch(error => {
-     alert({error})
-   })
-  }
-
-  setUserName = user_name => {
-    this.setState({user_name: user_name})
-  }
-
-  removePost = index => {
-    const { posts } = this.state
-
-    this.setState({
-      posts: posts.filter ((post, i) => {
-        return i != index
-      })
-    })
-  }
-
-  handleSubmit = post => {
-    this.setState({ posts: [...this.state.posts, post]})
-  }
-
-  handleUpdate = updatedPost => {
-    const updatedPosts = this.state.posts.map(post => {
-      return post.id === updatedPost.id ? updatedPost : post
-    })
-
-    this.setState({
-      posts : updatedPosts
-    })
-  }
-
+ 
+   setUserName = user_name => {
+     this.setState({user_name: user_name})
+   }
+ 
+   removePost = index => {
+     const { posts } = this.state
+ 
+     this.setState({
+       posts: posts.filter ((post, i) => {
+         return i != index
+       })
+     })
+   }
+ 
+   handleSubmit = post => {
+     this.setState({ posts: [...this.state.posts, post]})
+   }
+ 
+   handleUpdate = updatedPost => {
+     const updatedPosts = this.state.posts.map(post => {
+       return post.id === updatedPost.id ? updatedPost : post
+     })
+ 
+     this.setState({
+       posts : updatedPosts
+     })
+   }
+ 
 
 
   render () {
