@@ -1,8 +1,29 @@
 import React from 'react'
 import Edit from '../Edit-Form/Edit'
 import {Link} from 'react-router-dom'
+import journalContext from '../journal-context'
 
 
+// class Entries extends React.Component{
+
+//     static contextType  = journalContext
+
+//     constructor(props){
+//         super(props)
+
+//         this.state = {
+
+//         }
+//     }
+
+//     render(){
+//         return(
+
+        
+
+//         )
+//     }
+// }
 const EntryBody = props => {
     const lines = props.entryData.map((line, index) => {
         return (

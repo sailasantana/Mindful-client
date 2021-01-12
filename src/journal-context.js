@@ -7,6 +7,8 @@ export default React.createContext({
     addPost: () => {},
     updatePost : () => {},
     deletePost: () => {},
-    updatePostsInState: () => {}
+    updatePostsInState: () => {},
+    //currentDateSelection: '',
+    //updateCurrentDate : () => {}
 
 })

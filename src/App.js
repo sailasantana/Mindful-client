@@ -14,7 +14,8 @@ import config from './config'
 class App extends Component {
   state = {
     posts: [],
-    user_name:''
+    user_name:'',
+    currentDateSelection : ''
   }
 
   // componentDidMount(){
@@ -43,6 +44,11 @@ class App extends Component {
   //     alert({error})
   //   })
   //  }
+
+  // updateCurrentDate = date => {
+  //   this.setState({currentDateSelection: date})
+  // }
+
 
   updatePostsInState = posts => {
     this.setState({posts : posts})
@@ -87,7 +93,11 @@ class App extends Component {
       updatePost: this.handleUpdate,
       setUserName: this.setUserName,
       updatePostsInState: this.updatePostsInState,
-      user_name: this.state.user_name
+      user_name: this.state.user_name,
+      //updateCurrentDate : this.updateCurrentDate,
+      //currentDateSelection : this.state.currentDateSelection
+
+
 
     }
     //const { posts } = this.state;

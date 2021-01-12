@@ -17,6 +17,10 @@ export default class LoginPage extends React.Component {
 
    constructor(props){
        super(props);
+       this.userInput = React.createRef();
+       this.passInput = React.createRef();
+
+
        this.state  = {
            error : null,
            posts : []
@@ -26,30 +30,29 @@ export default class LoginPage extends React.Component {
    //handle login auth and validation upon form submission
    handleJwtLoginAuth = e => {
        e.preventDefault();
-       const {return_user, return_pass} = e.target;
-
        this.setState({
            error: null
        });
 
        AuthApiService.postLogin({
-           user_name: return_user.value,
-           password : return_pass.value
+           user_name:this.userInput.current.value,
+           password : this.passInput.current.value
+        
        })
        .then(res => {
+           console.log(res)
         if(res.ok){
+            
         
-            this.context.setUserName(return_user.value)
+            this.context.setUserName(this.userInput.current.value)
            }
-           return_user.value = '';
-           return_pass.value = '';
+         
            TokenService.saveAuthToken(res.authToken);
            this.props.onvalidLogin();
-           console.log('bc')
 
            
-            console.log('abc')
-            fetch(`${config.API_ENDPOINT}/api/${return_user.value}`, {
+            console.log(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`)
+            fetch(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`, {
                 headers: {
                   'authorization':`bearer ${TokenService.getAuthToken()}`
                 }
@@ -72,7 +75,9 @@ export default class LoginPage extends React.Component {
            
        })
        .then(() => {
-           window.location = '/dashboard';
+           console.log(this.props)
+           this.props.history.push('/dashboard') 
+           //window location refreshes page - so avoid using it
        })
        .catch(res => {
            this.setState({
@@ -82,9 +87,7 @@ export default class LoginPage extends React.Component {
 
    }
 
-   setPosts = (posts) => {
-
-   }
+  
 
     render(){
 
@@ -93,9 +96,9 @@ export default class LoginPage extends React.Component {
                 <h2>Login or Sign Up to Continue</h2>
                 <form onSubmit = {this.handleJwtLoginAuth}>
                     <label>Username</label>
-                    <input type = 'text' id="return-user" name="return_user"/>
+                    < input  ref={this.userInput} type = 'text' id="return_user" name="return_user"/>
                     <label>Password</label>
-                    <input type="password" id="return-pass" name="return_pass"/>
+                    <input  ref={this.passInput}  type="password" id="return_pass" name="return_pass"/>
                     <button type='submit' >
                     Login
                 </button>
