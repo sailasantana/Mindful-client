@@ -12,6 +12,9 @@ class Posts extends React.Component {
 
     static contextType = journalContext;
 
+    handleDeleteNote = id => {
+        this.props.history.push(`/dashboard`)
+    };
   
 
     render(){
@@ -34,7 +37,8 @@ class Posts extends React.Component {
                             <Entry
                                 id={filteredEntries[i].id}
                                 title={filteredEntries[i].title}
-                                content={filteredEntries[i].content}/>
+                                content={filteredEntries[i].content}
+                                onDeleteNote={this.handleDeleteNote}/>
                         </li>
                     
                 </ul>
