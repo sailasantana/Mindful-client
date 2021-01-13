@@ -6,9 +6,9 @@ import Login from './Login/Login'
 import SignUp from './Login/SignUp'
 import { Route } from 'react-router-dom'
 import Edit from './Edit-Form/Edit'
-import TokenService from './Auth-Service/token-services';
+//import TokenService from './Auth-Service/token-services';
 import journalContext from './journal-context';
-import config from './config'
+//import config from './config'
 
 
 class App extends Component {
@@ -16,6 +16,7 @@ class App extends Component {
     posts: [],
     user_name:'',
     currentDateSelection : ''
+ 
   }
 
 
@@ -37,7 +38,7 @@ class App extends Component {
  
      this.setState({
        posts: posts.filter ((post, i) => {
-         return i != index
+         return i !== index
        })
      })
    }
@@ -55,6 +56,9 @@ class App extends Component {
        posts : updatedPosts
      })
    }
+
+ 
+
  
 
 
@@ -70,11 +74,12 @@ class App extends Component {
       user_name: this.state.user_name,
       updateCurrentDate : this.updateCurrentDate,
       currentDateSelection : this.state.currentDateSelection
+    
+
 
 
 
     }
-    //const { posts } = this.state;
     
     return (
       <journalContext.Provider value={postValues}>
@@ -99,7 +104,7 @@ class App extends Component {
        }
       />
       <Route path='/sign-up' component={SignUp} />
-      <Route path='/edit' component={Edit} />
+      <Route path='/edit/:id' component={Edit} />
       </div>
       </journalContext.Provider >
 

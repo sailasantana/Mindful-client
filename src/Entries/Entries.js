@@ -3,6 +3,7 @@ import Edit from '../Edit-Form/Edit'
 import {Link} from 'react-router-dom'
 import journalContext from '../journal-context'
 import moment from 'moment';
+import Entry from './Entry'
 //import Edit from '../Edit-Form/Edit'
 
 
@@ -11,12 +12,7 @@ class Posts extends React.Component {
 
     static contextType = journalContext;
 
-    constructor(props){
-        super(props)
-      
-    }
-
-    
+  
 
     render(){
 
@@ -31,14 +27,18 @@ class Posts extends React.Component {
 
         const entries = filteredEntries.map((posts ,i) => {
 
-            return (
-                <div key = {filteredEntries[i].id}>
-                    <h2>{filteredEntries[i].title}</h2>
-                    <p>{filteredEntries[i].content} </p>
-                    <button>Delete</button>
-                    <button><Link to = './Edit'>Edit</Link></button>
-
-                </div>
+            return (    
+                <ul>
+                    
+                        <li key={filteredEntries[i].id}>
+                            <Entry
+                                id={filteredEntries[i].id}
+                                title={filteredEntries[i].title}
+                                content={filteredEntries[i].content}/>
+                        </li>
+                    
+                </ul>
+             
             )
         })
 

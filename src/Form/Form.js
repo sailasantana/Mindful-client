@@ -63,7 +63,7 @@ class Form extends Component {
         })
 
     
-
+        
 
     }
 
@@ -80,7 +80,7 @@ class Form extends Component {
 
         return (
             <div>
-                <h2>Add An Entry</h2>
+                <h2>Add Today's Entry</h2>
                 <form  onSubmit={this.submitForm}>
                     <label>Title</label>
                         <input 
