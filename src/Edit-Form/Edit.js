@@ -1,10 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import journalContext from '../journal-context';
 
 export default class Edit extends React.Component {
 
+    static contextType = journalContext;
+
+    constructor(props){
+        super(props)
+        this.bodyInput = React.createRef();
+    }
+
     submitForm = () => {
         console.log('edited!')
+
+
     }
 
     render(){
@@ -21,7 +31,7 @@ export default class Edit extends React.Component {
                         id="body"
                     />
             </form>
-            <Link to ='./dashboard'>Edit</Link>
+            <button><Link to ='./dashboard'>Edit</Link></button>
             </div>
         )
 

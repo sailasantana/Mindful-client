@@ -2,61 +2,63 @@ import React from 'react'
 import Edit from '../Edit-Form/Edit'
 import {Link} from 'react-router-dom'
 import journalContext from '../journal-context'
+import moment from 'moment';
+//import Edit from '../Edit-Form/Edit'
 
 
-// class Entries extends React.Component{
 
-//     static contextType  = journalContext
+class Posts extends React.Component {
 
-//     constructor(props){
-//         super(props)
+    static contextType = journalContext;
 
-//         this.state = {
+    constructor(props){
+        super(props)
+      
+    }
 
-//         }
-//     }
+    
 
-//     render(){
-//         return(
+    render(){
 
-        
+        const date = this.context.currentDateSelection
+        const formattedDate = moment(date).format('MM/DD/YYYY');
+     
 
-//         )
-//     }
-// }
-const EntryBody = props => {
-    const lines = props.entryData.map((line, index) => {
-        return (
-            <div key={index}>
-                <h2>{line.title}</h2>
-                <p>{line.body}</p>
-                <button onClick={() => props.removePost(index)}>Delete</button>
-                <Link to ='./edit'>Edit</Link>
-            </div>
+        let filteredEntries = this.context.posts.filter( (posts , i) => 
+        formattedDate == moment(this.context.posts[i].modified).format('MM/DD/YYYY'))
+            console.log(filteredEntries)
+
+
+        const entries = filteredEntries.map((posts ,i) => {
+
+            return (
+                <div key = {filteredEntries[i].id}>
+                    <h2>{filteredEntries[i].title}</h2>
+                    <p>{filteredEntries[i].content} </p>
+                    <button>Delete</button>
+                    <button><Link to = './Edit'>Edit</Link></button>
+
+                </div>
+            )
+        })
+
+        return(
+         <div>
+
+            <h2>Your Entries : {formattedDate}</h2>
+            <div>{entries}</div>
+         </div>   
+         
+         
         )
-    })
-
-    return (
-        <div>
-            {lines}  
-        </div>
-    )
+    }
 }
 
-const Posts = (props) => {
-    
-        const { entryData, removePost } = props;
 
-        return (
-            <div>
-                <h2>My Entries</h2>
-               
-                
-                <EntryBody entryData={entryData} removePost={removePost}/>
-            </div>
 
-        )
-    
-}
 
-export default Posts
+
+ export default Posts
+
+
+{/* <h2>{{filteredEntries} ? `Your Entries : {formattedDate}` : `No Entries`}</h2>  */}

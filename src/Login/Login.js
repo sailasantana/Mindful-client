@@ -41,11 +41,11 @@ export default class LoginPage extends React.Component {
        })
        .then(res => {
            console.log(res)
-        if(res.ok){
-            
-        
+    
+             
+            console.log('abcd')
             this.context.setUserName(this.userInput.current.value)
-           }
+        
          
            TokenService.saveAuthToken(res.authToken);
            this.props.onvalidLogin();
@@ -63,7 +63,9 @@ export default class LoginPage extends React.Component {
                 }
                 return res.json()
               })
+
               .then(posts => {
+                  console.log(posts)
                 this.context.updatePostsInState(posts)
               })
               .catch(error => {

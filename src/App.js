@@ -18,36 +18,10 @@ class App extends Component {
     currentDateSelection : ''
   }
 
-  // componentDidMount(){
 
-  //   //check for login credentials
-  //   if(!TokenService.getAuthToken()){
-  //     return;
-  //   }
-  //   console.log(this.state.user_name)
-
-  //   fetch(`${config.API_ENDPOINT}/api/${this.state.user_name}`, {
-  //     headers: {
-  //       'authorization':`bearer ${TokenService.getAuthToken()}`
-  //     }
-  //   })
-  //   .then(res => {
-  //     if(!res.ok){
-  //       return res.json().then(e => Promise.reject(e))
-  //     }
-  //     return res.json()
-  //   })
-  //   .then(posts => {
-  //     this.setState({posts})
-  //   })
-  //   .catch(error => {
-  //     alert({error})
-  //   })
-  //  }
-
-  // updateCurrentDate = date => {
-  //   this.setState({currentDateSelection: date})
-  // }
+  updateCurrentDate = date => {
+    this.setState({currentDateSelection: date})
+  }
 
 
   updatePostsInState = posts => {
@@ -94,8 +68,8 @@ class App extends Component {
       setUserName: this.setUserName,
       updatePostsInState: this.updatePostsInState,
       user_name: this.state.user_name,
-      //updateCurrentDate : this.updateCurrentDate,
-      //currentDateSelection : this.state.currentDateSelection
+      updateCurrentDate : this.updateCurrentDate,
+      currentDateSelection : this.state.currentDateSelection
 
 
 
