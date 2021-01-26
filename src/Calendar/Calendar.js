@@ -18,15 +18,12 @@ import journalContext from "../journal-context";
 
   }
 
-  console.log(context)
   return (
     <div>
-      <Calendar showWeekNumbers onChange = {onChange} value = {date}/>
-      {date.toString()}
+      <Calendar  className = "table" onChange = {onChange} value = {date}/>
+     
     </div>
   )
-
-
    
  }
 

@@ -9,6 +9,8 @@ import Edit from './Edit-Form/Edit'
 //import TokenService from './Auth-Service/token-services';
 import journalContext from './journal-context';
 //import config from './config'
+import Scream from './Scream/scream'
+import Logout from './Login/Logout'
 
 
 class App extends Component {
@@ -37,8 +39,8 @@ class App extends Component {
      const { posts } = this.state
  
      this.setState({
-       posts: posts.filter ((post, i) => {
-         return i !== index
+       posts: posts.filter ((post) => {
+         return post.id !== index
        })
      })
    }
@@ -58,9 +60,6 @@ class App extends Component {
    }
 
  
-
- 
-
 
   render () {
 
@@ -87,11 +86,13 @@ class App extends Component {
       <div className="App">
         <h1>Mind Your Moment</h1>
         <Route exact path = '/' component={Login}/>
+        <Route path='/dashboard' component={Logout} />
         <Route path ='/dashboard' component={ReactCalendar}/>
         <Route
         path='/dashboard'
         render={(props) => (
          <Form
+         {...props}
          handleSubmit={this.handleSubmit}/>      
          )}/>
         
@@ -99,12 +100,17 @@ class App extends Component {
         path='/dashboard'
         render={(props) => (
          <Posts
+         {...props}
          entryData={this.state.posts} removeEntry={this.removePost}/>      
          )
        }
       />
       <Route path='/sign-up' component={SignUp} />
+      <Route path='/edit/:id' component={Logout} />
       <Route path='/edit/:id' component={Edit} />
+      <Route path='/scream' component={Logout} />
+      <Route path='/scream' component={Scream} />
+
       </div>
       </journalContext.Provider >
 

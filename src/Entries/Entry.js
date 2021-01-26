@@ -2,6 +2,7 @@ import React from 'react';
 import journalContext from '../journal-context';
 import {Link} from 'react-router-dom'
 import config from '../config'
+import TokenService from '../Auth-Service/token-services';
 
 
 
@@ -13,6 +14,35 @@ export default class Entry extends React.Component {
 
     static contextType = journalContext;
 
+    componentDidMount(){
+      const token = TokenService.getAuthToken();
+      const options = {
+          method: 'GET',
+          headers: {
+              'session_token':token
+          }
+      }
+
+      fetch(`${config.API_ENDPOINT}/api/validate`, options)
+          .then(response => {
+              if(response.ok){
+
+                  return response.json()
+              }
+              throw new Error(response.statusText)
+          })
+          .then( responseJson => {
+              this.setState({
+                  message: responseJson.message
+              })
+          })
+          .catch( err => {
+              console.log(err.message);
+              this.props.history.push('/')
+          })
+
+  }
+
     handleClickDelete = e => {
       e.preventDefault();
       const entry_id = this.props.id;
@@ -21,7 +51,8 @@ export default class Entry extends React.Component {
       fetch(`${config.API_ENDPOINT}/api/${this.context.user_name}/${entry_id}`, {
         method: 'DELETE',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'session_token': TokenService.getAuthToken()
         },
       })
       .then (res => {

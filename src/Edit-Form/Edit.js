@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import journalContext from '../journal-context';
 import config from '../config'
+import TokenService from '../Auth-Service/token-services';
 
 export default class Edit extends React.Component {
 
@@ -25,6 +26,35 @@ export default class Edit extends React.Component {
         
     }
 
+    componentDidMount(){
+        const token = TokenService.getAuthToken();
+        const options = {
+            method: 'GET',
+            headers: {
+                'session_token':token
+            }
+        }
+
+        fetch(`${config.API_ENDPOINT}/api/validate`, options)
+            .then(response => {
+                if(response.ok){
+
+                    return response.json()
+                }
+                throw new Error(response.statusText)
+            })
+            .then( responseJson => {
+                this.setState({
+                    message: responseJson.message
+                })
+            })
+            .catch( err => {
+                console.log(err.message);
+                this.props.history.push('/')
+            })
+
+    }
+
     submitUpdate = (e) => {
         e.preventDefault();
 
@@ -35,7 +65,8 @@ export default class Edit extends React.Component {
        fetch(`${config.API_ENDPOINT}/api/${this.context.user_name}/${this.props.match.params.id}`,  {
         method: 'PATCH',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'session_token': TokenService.getAuthToken()
         },
         body: JSON.stringify(updatedEntry),
         })
@@ -47,6 +78,7 @@ export default class Edit extends React.Component {
         })
         .then(post => {
             this.context.updatePost(post)
+            console.log(this.props)
         })
         .catch(error => {
             alert({error})

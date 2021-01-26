@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import journalContext from '../journal-context';
+import React, { Component } from 'react'
+import journalContext from '../journal-context'
 import Mindful from '../MindfulMoment/mindful-store'
 import config from '../config'
+import { Link } from 'react-router-dom'
+import TokenService from '../Auth-Service/token-services'
 
 
 class Form extends Component {
@@ -12,9 +14,7 @@ class Form extends Component {
     constructor(props) {
         super(props)
         this.titleInput = React.createRef();
-        this.bodyInput = React.createRef();
-
-        
+        this.bodyInput = React.createRef();       
 
         this.state = {
             title: '',
@@ -24,7 +24,34 @@ class Form extends Component {
             clicked : false
         }
 
+    }
 
+    componentDidMount(){
+        const token = TokenService.getAuthToken();
+        const options = {
+            method: 'GET',
+            headers: {
+                'session_token':token
+            }
+        }
+
+        fetch(`${config.API_ENDPOINT}/api/validate`, options)
+            .then(response => {
+                if(response.ok){
+
+                    return response.json()
+                }
+                throw new Error(response.statusText)
+            })
+            .then( responseJson => {
+                this.setState({
+                    message: responseJson.message
+                })
+            })
+            .catch( err => {
+                console.log(err.message);
+                this.props.history.push('/')
+            })
 
     }
  
@@ -45,7 +72,9 @@ class Form extends Component {
        fetch(`${config.API_ENDPOINT}/api/${this.context.user_name}`,  {
         method: 'POST',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'session_token': TokenService.getAuthToken()
+
         },
         body: JSON.stringify(newEntry),
         })
@@ -74,13 +103,19 @@ class Form extends Component {
 
 
     render() {
-        //const {title, body } = this.state;
-        const quote = Mindful[0]
+
+        let max = 49;
+         
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+          }
+        
+        let quote = Mindful[getRandomInt(max)]
 
 
         return (
             <div>
-                <h2>Add Today's Entry</h2>
+                <h2>Add Today's Entry or <Link to = '/scream'>Scream and Release</Link></h2>
                 <form  onSubmit={this.submitForm}>
                     <label>Title</label>
                         <input 
@@ -89,6 +124,7 @@ class Form extends Component {
                             type="text"
                             name="title"
                             id="title"
+                            required
                             />
                         <label>Entry</label>
                         <input 
@@ -97,6 +133,7 @@ class Form extends Component {
                             type="textarea"
                             name="body"
                             id="body"
+                            required
                              />
                         <button>Submit</button>
 

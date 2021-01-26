@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import AuthApiService from '../Auth-Service/api-auth-service';
 import TokenService from '../Auth-Service/token-services';
 import journalContext from '../journal-context';
-//import SignUp from './SignUp'
 import config from '../config'
+import './LoginSignUp.css'
 
 
 export default class LoginPage extends React.Component {
@@ -27,7 +27,10 @@ export default class LoginPage extends React.Component {
     };
    }
 
-   //handle login auth and validation upon form submission
+   
+
+   //handle login auth and validation upon form submission and 
+   //get user's entries + set them into context
    handleJwtLoginAuth = e => {
        e.preventDefault();
        this.setState({
@@ -40,21 +43,15 @@ export default class LoginPage extends React.Component {
         
        })
        .then(res => {
-           console.log(res)
-    
-             
-            console.log('abcd')
-            this.context.setUserName(this.userInput.current.value)
-        
-         
-           TokenService.saveAuthToken(res.authToken);
+
+           this.context.setUserName(this.userInput.current.value)        
+           TokenService.saveAuthToken(res.token);
            this.props.onvalidLogin();
 
-           
-            console.log(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`)
+           console.log(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`)
             fetch(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`, {
                 headers: {
-                  'authorization':`bearer ${TokenService.getAuthToken()}`
+                  'session_token':`${TokenService.getAuthToken()}`
                 }
               })
               .then(res => {
@@ -71,15 +68,11 @@ export default class LoginPage extends React.Component {
               .catch(error => {
                 alert({error})
               })
-             
-
-
            
        })
        .then(() => {
            console.log(this.props)
            this.props.history.push('/dashboard') 
-           //window location refreshes page - so avoid using it
        })
        .catch(res => {
            this.setState({
@@ -93,21 +86,21 @@ export default class LoginPage extends React.Component {
 
     render(){
 
-        return(
+        return (
             <div>
-                <h2>Login or Sign Up to Continue</h2>
+                <h2 className ='login'>Login or Sign Up to Continue</h2>
+                <img className = 'giphy' src="https://media1.giphy.com/media/Ma0gyrI1K0jSHoY8cZ/giphy.gif" width="340" height="270"/>
                 <form onSubmit = {this.handleJwtLoginAuth}>
                     <label>Username</label>
-                    < input  ref={this.userInput} type = 'text' id="return_user" name="return_user"/>
+                    < input  ref={this.userInput} type = 'text' id="return_user" name="return_user" />
                     <label>Password</label>
-                    <input  ref={this.passInput}  type="password" id="return_pass" name="return_pass"/>
+                    <input  ref={this.passInput}  type="password" id="return_pass" name="return_pass" />
                     <button type='submit' >
                     Login
                 </button>
-                <Link to ='./sign-up'>Sign Up here!</Link>
+                <Link to ='./sign-up'>New User? Sign Up here!</Link>
                 </form>
-            </div>
-        )
+            </div> )
     }
 
 

@@ -5,12 +5,43 @@ import journalContext from '../journal-context'
 import moment from 'moment';
 import Entry from './Entry'
 //import Edit from '../Edit-Form/Edit'
+import TokenService from '../Auth-Service/token-services'
+import config from '../config'
 
 
 
 class Posts extends React.Component {
 
     static contextType = journalContext;
+
+    componentDidMount(){
+        const token = TokenService.getAuthToken();
+        const options = {
+            method: 'GET',
+            headers: {
+                'session_token':token
+            }
+        }
+
+        fetch(`${config.API_ENDPOINT}/api/validate`, options)
+            .then(response => {
+                if(response.ok){
+
+                    return response.json()
+                }
+                throw new Error(response.statusText)
+            })
+            .then( responseJson => {
+                this.setState({
+                    message: responseJson.message
+                })
+            })
+            .catch( err => {
+                console.log(err.message);
+                this.props.history.push('/')
+            })
+
+    }
 
     handleDeleteNote = id => {
         this.props.history.push(`/dashboard`)
@@ -35,6 +66,7 @@ class Posts extends React.Component {
                     
                         <li key={filteredEntries[i].id}>
                             <Entry
+                                history = {this.props.history}
                                 id={filteredEntries[i].id}
                                 title={filteredEntries[i].title}
                                 content={filteredEntries[i].content}
