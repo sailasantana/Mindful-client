@@ -4,7 +4,9 @@ import Mindful from '../MindfulMoment/mindful-store'
 import config from '../config'
 import { Link } from 'react-router-dom'
 import TokenService from '../Auth-Service/token-services'
+import './Form.css'
 
+//you can just use controlled inputs   
 
 class Form extends Component {
 
@@ -97,14 +99,23 @@ class Form extends Component {
     }
 
     handleClick = () => {
-        this.setState({submitted: false})
+        
+        this.setState({
+            title: '',
+            body: '',
+            submitted: false
+        
+        })
+
+        this.titleInput = ''
+        this.bodyInput = ''
     }
 
 
 
     render() {
 
-        let max = 49;
+        let max = 47;
          
         function getRandomInt(max) {
             return Math.floor(Math.random() * Math.floor(max));
@@ -112,41 +123,45 @@ class Form extends Component {
         
         let quote = Mindful[getRandomInt(max)]
 
+        let className='Pop-up';
+        if (this.state.submitted == true) {
+          className += ' Pop-up-active';
+        }
 
         return (
-            <div>
-                <h2>Add Today's Entry or <Link to = '/scream'>Scream and Release</Link></h2>
-                <form  onSubmit={this.submitForm}>
-                    <label>Title</label>
+            <div className= 'Journal-container'>
+                <h2 className = "Journal-form-title">Add Today's Entry or <Link to = '/scream'>Scream and Release</Link></h2>
+                <form className = "Journal-form" onSubmit={this.submitForm}>
                         <input 
                             placeholder="Enter title"
                             ref = {this.titleInput}
                             type="text"
+                            className = 'Entry-title'
                             name="title"
                             id="title"
                             required
                             />
-                        <label>Entry</label>
-                        <input 
+                        <textarea 
                             placeholder="What's up?"
                             ref = {this.bodyInput}
                             type="textarea"
+                            className = 'Entry-content'
                             name="body"
                             id="body"
+                            rows = "18" 
+                            cols="70"
                             required
                              />
-                        <button>Submit</button>
+                        <button className = "Journal-button">Submit</button>
 
                 </form>
-                        <div className = "mindful-quotes"> 
-                        {this.state.submitted ? 
-                        <div>
-                        <h2>Good job getting a Mindful Moment in! 
-                            </h2>
-                        <p>"{quote}"</p>
-                        <button onClick = {this.handleClick}>x</button>
-        
-                        </div> : null}
+                <div className = {className}> 
+                    {this.state.submitted ? 
+                    <div>
+                    <h3 className='Prompt-1'>Great job getting a Moment in!</h3>
+                    <button className='Pop-up-button' onClick = {this.handleClick}>x</button>
+                    <p>"{quote}"</p>
+                    </div> : null}
                 </div>
             </div>
         )

@@ -1,0 +1,118 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+.Journal-container{
+    display: flex;
+    flex-direction: column;
+    margin-left:30px;
+    margin-right: 90px;
+    background: url("https://i.pinimg.com/originals/d4/d5/38/d4d538153c0c33e1f1b478040c15b9d4.jpg");
+  
+}
+
+.Journal-form-title{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.Journal-form{
+    display:block;
+
+}
+
+
+.Entry-title, .Entry-content{
+    border:none;
+    border-left: 2px solid  rgb(145, 147, 226);
+}
+
+.Journal-button {
+    background: rgb(145, 147, 226);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    width: 10%;
+    margin-top:15px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;  
+    
+}
+
+
+.Pop-up-button {
+    border-color: transparent;
+    background: transparent;
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    width: 2.5%;
+    border-width: 1px;
+    border-style: solid;
+    outline: 0;
+    font-size: 1.2em; 
+    font-weight: bold;
+    text-align: center;
+    margin-left: 360px;
+    
+}
+
+.Prompt-1,.Pop-up-button{
+    display:inline;
+}
+
+.Journal-button:hover {
+  background: #17c;
+}
+
+
+/* Buttons' focus effect */
+.Journal-button:focus  {
+  border-color: #05a;
+}
+
+.Pop-up.Pop-up-active{
+    margin-top:20px;
+    border: 2px solid rgb(145, 147, 226);
+    border-radius:10px;
+    padding:20px;
+    width:50%;
+    font-size: 1.0em; 
+    font-weight: 350;
+    font-family: 'Open Sans', sans-serif;
+    background: rgb(145, 147, 226);
+    color:rgb(255, 255, 255);
+
+
+}
+
+.Prompt-1{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+
+}
+
+.Entry-title, .Entry-content{
+    display:block;
+    box-sizing: border-box;
+    border-width: 1px;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+}
+.Entry-title{
+    width: 610px;
+    margin-bottom: 10px;
+
+}
+
+
+
+

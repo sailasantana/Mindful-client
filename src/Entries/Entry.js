@@ -3,6 +3,7 @@ import journalContext from '../journal-context';
 import {Link} from 'react-router-dom'
 import config from '../config'
 import TokenService from '../Auth-Service/token-services';
+import './Entries.css'
 
 
 
@@ -75,39 +76,28 @@ export default class Entry extends React.Component {
 
       return (
         <div className='Entry'>
-
-          <h2 className='Entry_title'>
-            
-              {title}
-          
+          <h2 className='title'>
+            {title}
           </h2>
-          <p className='Entry_content'>
-            
-            {content}
-        
-        </p>
-
+          <p className='content'>       
+            {content}        
+          </p>
           <button 
-            className='Entry__delete' 
+            className='Entry-delete-button' 
             type='button'
             onClick={this.handleClickDelete}>
             {' '}
             Remove
-
           </button>
           <button 
-            className='Entry__edit' 
+            className='Entry-edit-button' 
             type='button'
             onClick={this.handleClickEdit}>
             <Link to={`/edit/${id}`}>
             {' '}
             Edit
             </Link>
-          
-
-          </button>
-
-         
+          </button>        
         </div>
       )
     }

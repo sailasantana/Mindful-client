@@ -60,6 +60,7 @@ export default class Edit extends React.Component {
 
         let updatedEntry = {
             content: this.bodyInput.current.value
+
         }
 
        fetch(`${config.API_ENDPOINT}/api/${this.context.user_name}/${this.props.match.params.id}`,  {
@@ -71,14 +72,18 @@ export default class Edit extends React.Component {
         body: JSON.stringify(updatedEntry),
         })
         .then(res => {
+            console.log('hel')
             if(!res.ok){
                 return res.json().then(e => Promise.reject(e))
             }
-            return res.json()
+            return res
         })
-        .then(post => {
-            this.context.updatePost(post)
-            console.log(this.props)
+        .then(() => {
+            this.context.updatePost({id:this.props.match.params.id, content: this.bodyInput.current.value})
+            console.log('hello')
+            console.log(this.props.history)
+            this.props.history.push('/dashboard')
+
         })
         .catch(error => {
             alert({error})

@@ -62,7 +62,7 @@ class Posts extends React.Component {
         const entries = filteredEntries.map((posts ,i) => {
 
             return (    
-                <ul>
+                <ul className= "Entry-single">
                     
                         <li key={filteredEntries[i].id}>
                             <Entry
@@ -81,7 +81,7 @@ class Posts extends React.Component {
         return(
          <div>
 
-            <h2>Your Entries : {formattedDate}</h2>
+            <h2 className='Entry-all-title'>{formattedDate}</h2>
             <div>{entries}</div>
          </div>   
          

@@ -27,7 +27,7 @@ export default class LoginPage extends React.Component {
     };
    }
 
-   
+
 
    //handle login auth and validation upon form submission and 
    //get user's entries + set them into context
@@ -48,7 +48,6 @@ export default class LoginPage extends React.Component {
            TokenService.saveAuthToken(res.token);
            this.props.onvalidLogin();
 
-           console.log(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`)
             fetch(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`, {
                 headers: {
                   'session_token':`${TokenService.getAuthToken()}`
@@ -62,7 +61,7 @@ export default class LoginPage extends React.Component {
               })
 
               .then(posts => {
-                  console.log(posts)
+
                 this.context.updatePostsInState(posts)
               })
               .catch(error => {
@@ -71,7 +70,6 @@ export default class LoginPage extends React.Component {
            
        })
        .then(() => {
-           console.log(this.props)
            this.props.history.push('/dashboard') 
        })
        .catch(res => {
@@ -87,20 +85,17 @@ export default class LoginPage extends React.Component {
     render(){
 
         return (
-            <div>
-                <h2 className ='login'>Login or Sign Up to Continue</h2>
-                <img className = 'giphy' src="https://media1.giphy.com/media/Ma0gyrI1K0jSHoY8cZ/giphy.gif" width="340" height="270"/>
-                <form onSubmit = {this.handleJwtLoginAuth}>
-                    <label>Username</label>
-                    < input  ref={this.userInput} type = 'text' id="return_user" name="return_user" />
-                    <label>Password</label>
-                    <input  ref={this.passInput}  type="password" id="return_pass" name="return_pass" />
-                    <button type='submit' >
-                    Login
-                </button>
-                <Link to ='./sign-up'>New User? Sign Up here!</Link>
-                </form>
-            </div> )
+            <div class="login">   
+            <img className = "logo" src="/logo.png" width="210" height="180"/>
+              <div className="login-triangle"></div>
+              <h2 className="login-header">Log in to continue</h2>
+              <form className="login-container"  onSubmit = {this.handleJwtLoginAuth}>
+                <p><input type="username" ref={this.userInput} placeholder="Username"/></p>
+                <p><input type="password" ref={this.passInput} placeholder="Password"/></p>
+                <button type="submit" value="Log in" className='login-button'>Log In</button>
+              </form>
+             <p className= 'Sign-up-prompt'><Link to ='./sign-up'>New User? Sign Up here!</Link></p> 
+            </div>)
     }
 
 

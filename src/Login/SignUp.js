@@ -60,21 +60,20 @@ export default class SignUp extends React.Component {
     render(){
 
         return(
-            <div>
-                <h2>You otter relax... Sign Up</h2>
-                <form onSubmit = {this.submitRegistration}>
-                    <label>First Name</label>
-                    <input type = 'text' name= 'first_name' id= 'first_name'/>
-                    <label>Last Name</label>
-                    <input type = 'text' name= 'last_name' id= 'last_name'/>
-                    <label>Username</label>
-                    <input type = 'text' name= 'user_name'
-                    id= 'user_name'/>
-                    <label>Password</label>
-                    <input type = 'password' name= 'password' id= 'password'/>
-                    <button>Sign Up</button>
+            <div className = "sign-up">
+                <img className = "logo" src="/logo.png" width="210" height="180"/>
+                <div className="sign-up-triangle"></div>
+                <h2 className="login-header">You otter relax...</h2>
+                <form onSubmit = {this.submitRegistration} className="login-container">
+                    <p><input type="firstname" placeholder="First Name" name= 'first_name' id= 'first_name' className = 'first_name'/></p>
+                    <p><input type="lastname" placeholder="Last Name" name= 'last_name' id= 'last_name' className = 'last_name'/></p>
+                    <p><input type="username" placeholder="Username" name= 'user_name' id= 'user_name' className = 'user_name'/></p>
+                    <p><input type="password" placeholder="Password" name= 'password' id= 'password' className = 'password'/></p>
+                    <button className = 'sign-up-button'>Sign Up</button>
                 </form>
             </div>
+
+
         )
     }
 

@@ -1,34 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 body {
-    background-color:#fcf4f4;
+  font-family: 'Open Sans', sans-serif;
 }
 
-/* .title{
-    margin-left: 600px;
-    margin-right: 600px;
+
+.logo{
+    margin-top: 20px;
+    margin-left:95px;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+.login, .sign-up {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header, .sign-up-header
+.login p , .sign-up{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* The triangle form is achieved by a CSS hack */
+.login-triangle , .sign-up-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: rgb(145, 147, 226);
+}
+
+.login-header , .sign-up-header {
+  background: rgb(145, 147, 226);
+  padding: 15px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container {
+  background-image: url("https://image.freepik.com/free-vector/earth-tone-patterned-background_53876-89932.jpg");
+  padding: 30px;
+  }
+
+.sign-up-container {
+    background-image: url("https://image.freepik.com/free-vector/earth-tone-patterned-background_53876-89932.jpg");
+    padding: 30px;
+
+}  
+
+/* Every row inside .login-container is defined with p tags */
+.login p .sign-up p{
+  padding: 12px;
+}
+
+.login input, .sign-up input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="username"],
+.login input[type="password"],
+.sign-up input[type="username"],
+.sign-up input[type="password"],
+.sign-up input[type="firstname"],
+.sign-up input[type="lastname"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="username"]:focus,
+.login input[type="password"]:focus,
+.sign-up input[type="username"]:focus,
+.sign-up input[type="password"]:focus,
+.sign-up input[type="firstname"]:focus,
+.sign-up input[type="lastname"]:focus {
+  border-color: #888;
 
 }
 
-input {
-    margin-left: 600px;
-    margin-right: 600px;
-    margin-top:5px;
-    margin-bottom:5px;
-
+.login-button, .sign-up-button {
+  background: rgb(145, 147, 226);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  width: 50%;
+  margin-left:90px;
+  margin-top:15px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 12px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
 }
 
-button{
-    margin-left: 650px;
-    margin-right: 650px;
-    margin-top:10px;
-    margin-bottom:10px;
+.logout-button {
+    background: rgb(145, 147, 226);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    width: 10%;
+    margin-left:1250px;
+    margin-top:15px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;  
 }
 
-.giphy{
-    margin-left:600px;
-} */
+.login-button:hover, .sign-up-button:hover ,.logout-button:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login-button:focus, .sign-up-button:focus , .logout-button:focus {
+  border-color: #05a;
+}
+
+.Sign-up-prompt{
+    text-align:center;
+}

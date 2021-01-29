@@ -1,0 +1,64 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+.Entry-delete-button, .Entry-edit-button{
+    background: rgb(145, 147, 226);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    width: 6.5%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em; 
+    display: inline;
+}
+.Entry-delete-button:hover, .Entry-edit-button:hover {
+    background: #17c;
+  }
+  
+.Entry-delete-button:focus, .Entry-edit-button:focus {
+    border-color: #05a;
+  }
+
+.Entry-edit-button{
+    margin-left:15px;
+}
+
+
+.Entry-single {
+    list-style:none;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.Entry-all-title{
+    margin-left:39px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+
+}
+
+.Entry, .title, .content{
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+.title{
+    font-weight: 400;
+}
+
+.content{
+    margin-right:40px;
+}
+
+.Entry{
+    margin-right:40px;
+
+
+}
