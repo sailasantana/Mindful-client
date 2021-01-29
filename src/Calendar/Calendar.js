@@ -18,6 +18,7 @@ import 'react-calendar/dist/Calendar.css';
   const onChange = date => {
     setDate(date);
     context.updateCurrentDate(date)
+    context.setClicked(true)
 
   }
 

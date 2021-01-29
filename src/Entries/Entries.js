@@ -53,6 +53,9 @@ class Posts extends React.Component {
         const date = this.context.currentDateSelection
         const formattedDate = moment(date).format('MM/DD/YYYY');
      
+        let entriesFromStorage = localStorage.getItem('posts')
+        console.log(entriesFromStorage)
+        console.log('abc')
 
         let filteredEntries = this.context.posts.filter( (posts , i) => 
         formattedDate == moment(this.context.posts[i].modified).format('MM/DD/YYYY'))
@@ -79,13 +82,14 @@ class Posts extends React.Component {
         })
 
         return(
+         <div>  
+         {this.context.clicked ?
          <div>
-
             <h2 className='Entry-all-title'>{formattedDate}</h2>
             <div>{entries}</div>
-         </div>   
-         
-         
+         </div> 
+         : null }
+         </div> 
         )
     }
 }

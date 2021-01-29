@@ -15,7 +15,8 @@ class App extends Component {
   state = {
     posts: [],
     user_name:'',
-    currentDateSelection : ''
+    currentDateSelection : '',
+    calendarClicked : false
  
   }
 
@@ -57,6 +58,9 @@ class App extends Component {
      })
    }
 
+   setClicked = () => {
+     this.setState({calendarClicked : true})
+   }
  
 
   render () {
@@ -70,7 +74,9 @@ class App extends Component {
       updatePostsInState: this.updatePostsInState,
       user_name: this.state.user_name,
       updateCurrentDate : this.updateCurrentDate,
-      currentDateSelection : this.state.currentDateSelection
+      currentDateSelection : this.state.currentDateSelection,
+      setClicked : this.setClicked,
+      clicked : this.state.calendarClicked
     
 
 

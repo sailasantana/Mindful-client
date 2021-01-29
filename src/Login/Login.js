@@ -43,17 +43,19 @@ export default class LoginPage extends React.Component {
         
        })
        .then(res => {
-
-           this.context.setUserName(this.userInput.current.value)        
+           localStorage.setItem( 'user_name', this.userInput.current.value );
+           this.context.setUserName(this.userInput.current.value) 
            TokenService.saveAuthToken(res.token);
            this.props.onvalidLogin();
+           let userName = localStorage.getItem('user_name')
 
-            fetch(`${config.API_ENDPOINT}/api/${this.userInput.current.value}`, {
+            fetch(`${config.API_ENDPOINT}/api/${userName}`, {
                 headers: {
                   'session_token':`${TokenService.getAuthToken()}`
                 }
               })
               .then(res => {
+                  console.log('abcd')
                 if(!res.ok){
                   return res.json().then(e => Promise.reject(e))
                 }
@@ -61,7 +63,10 @@ export default class LoginPage extends React.Component {
               })
 
               .then(posts => {
-
+                localStorage.setItem( 'posts', posts );
+                let entriesFromStorage = localStorage.getItem('posts')
+                console.log(entriesFromStorage)
+                console.log('abc')
                 this.context.updatePostsInState(posts)
               })
               .catch(error => {
