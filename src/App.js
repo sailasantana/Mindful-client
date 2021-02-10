@@ -121,11 +121,11 @@ class App extends Component {
       <journalContext.Provider value={postValues}>
 
       <div className="App">
-      <div className ="login-view">
+      {/* <div className ="login-view"> */}
       <Route exact path = '/' component={Login}/>
-      </div>  
+      {/* </div>  
       {this.state.user_name ?
-            <div className="dashboard-view"> 
+            <div className="dashboard-view">  */}
             <Route path='/dashboard' component={Logout} />
             <Route path ='/dashboard' component={ReactCalendar}/>
             <Route path = '/dashboard' component={Stats}/>
@@ -137,11 +137,11 @@ class App extends Component {
                entryData={this.state.posts} removeEntry={this.removePost}/>      
                )}
             /> 
-            </div> : null
+            {/* </div> : null */}
       
-      }
+      {/* } */}
 
-      <div className = "form-view">
+      {/* <div className = "form-view"> */}
       <Route
         path='/add-entry'
         render={(props) => (
@@ -150,17 +150,17 @@ class App extends Component {
          handleSubmit={this.handleSubmit}/>      
          )}
       /> 
-      </div> 
+      {/* </div>  */}
 
      
       <Route path='/sign-up' component={SignUp} />
-      <div className = "edit-view">
+      {/* <div className = "edit-view"> */}
       <Route path='/edit/:id' component={Logout} />
       <Route path='/edit/:id' component={Edit} />
-      </div>
-      <div className = "scream-view">
+      {/* </div>
+      <div className = "scream-view"> */}
       <Route path='/scream' component={Scream} />
-      </div>
+      {/* </div> */}
       </div>
       </journalContext.Provider >
 
