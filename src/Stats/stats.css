@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+.stat-container {
+ flex-direction: row;
+ display : flex;
+ align-items: center;
+ margin-left: 330px;
+ font-family: 'Open Sans', sans-serif;
+ color: #555;
+ margin-top:10px;    
+
+}
+
+.one{
+ padding-top: 70px;
+ padding-bottom: 70px;
+ padding-left: 40px;
+ padding-right: 40px;
+ margin: 10px;
+ border : 1px  transparent;
+ border-radius: 5%;
+ background-color:rgba(237, 214, 205, 0.527);;
+ justify-content: left;
+
+
+}
+
+.two{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 75px;
+    padding-right: 75px;
+    margin: 10px;
+    border : 1px  transparent;
+    border-radius: 5%;
+    background-color:rgba(237, 214, 205, 0.527);;
+    justify-content: left;
+   
+}
+
+.stat-1 , .stat-2{
+    font-weight:600;
+    font-size: 1.5em;
+
+
+}
+
+
+.button-title, .add-button, .stat-1, .stat-2, .stat-title {
+ display: block;
+
+
+}
+
+.button-title, .stat-title {
+    margin-bottom: 4px;
+    font-size:0.9em;
+
+}
+
+.stat-button a{
+    text-decoration: none;
+    color: #555;
+
+
+}
+
+.stat-button{   
+    font-size:0.9em;
+    margin-top: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin: 10px;
+    border : 1px  transparent;
+    border-radius: 5%;
+    background-color:rgba(237, 214, 205, 0.527);;
+    justify-content: left;
+    text-decoration: none;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+    font-size: 4.4em;
+    font-weight: 10;
+    margin-left:10px;
+
+}
+
+
+.stat-button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(149, 70, 206, 0.4);
+  }
+
+  .sparks {
+      margin-left: 200px;
+  }
+

@@ -109,6 +109,8 @@ class Form extends Component {
 
         this.titleInput = ''
         this.bodyInput = ''
+
+        this.props.history.push('/dashboard')
     }
 
 
@@ -148,7 +150,7 @@ class Form extends Component {
                             className = 'Entry-content'
                             name="body"
                             id="body"
-                            rows = "18" 
+                            rows = "23" 
                             cols="70"
                             required
                              />
@@ -161,6 +163,7 @@ class Form extends Component {
                     <h3 className='Prompt-1'>Great job getting a Moment in!</h3>
                     <button className='Pop-up-button' onClick = {this.handleClick}>x</button>
                     <p>"{quote}"</p>
+                    <p>You can now view this entry in your dashboard</p>
                     </div> : null}
                 </div>
             </div>

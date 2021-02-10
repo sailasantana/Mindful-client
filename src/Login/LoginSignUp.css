@@ -118,8 +118,8 @@ body {
     box-sizing: border-box;
     display: block;
     width: 10%;
-    margin-left:1250px;
-    margin-top:15px;
+    margin-left:1220px;
+    margin-top:10px;
     border-width: 1px;
     border-style: solid;
     padding: 12px;
@@ -129,12 +129,12 @@ body {
 }
 
 .login-button:hover, .sign-up-button:hover ,.logout-button:hover {
-  background: #17c;
+  background:  #a4f5bc;
 }
 
 /* Buttons' focus effect */
 .login-button:focus, .sign-up-button:focus , .logout-button:focus {
-  border-color: #05a;
+  border-color: #a4f5bc;
 }
 
 .Sign-up-prompt{

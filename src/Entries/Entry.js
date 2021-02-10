@@ -47,7 +47,6 @@ export default class Entry extends React.Component {
     handleClickDelete = e => {
       e.preventDefault();
       const entry_id = this.props.id;
-      console.log(entry_id)
 
       fetch(`${config.API_ENDPOINT}/api/${this.context.user_name}/${entry_id}`, {
         method: 'DELETE',
@@ -98,7 +97,7 @@ export default class Entry extends React.Component {
             Edit
             </Link>
           </button>        
-        </div>
+        </div> 
       )
     }
   }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import journalContext from '../journal-context';
-import config from '../config'
+import config from '../config';
 import TokenService from '../Auth-Service/token-services';
+import './Edit.css';
 
 export default class Edit extends React.Component {
 
@@ -72,7 +73,6 @@ export default class Edit extends React.Component {
         body: JSON.stringify(updatedEntry),
         })
         .then(res => {
-            console.log('hel')
             if(!res.ok){
                 return res.json().then(e => Promise.reject(e))
             }
@@ -80,8 +80,6 @@ export default class Edit extends React.Component {
         })
         .then(() => {
             this.context.updatePost({id:this.props.match.params.id, content: this.bodyInput.current.value})
-            console.log('hello')
-            console.log(this.props.history)
             this.props.history.push('/dashboard')
 
         })
@@ -93,29 +91,28 @@ export default class Edit extends React.Component {
 
     render(){
 
-        let getContent = this.context.posts.filter(post => 
-            post.id == this.props.match.params.id)
+        let getContent = this.context.posts.filter(post =>  post.id == this.props.match.params.id)
         
-        console.log(getContent[0].content)
-
         return (
-            <div>
-            <form onSubmit = {this.submitUpdate}>
-                    <label>What Would you like to Change?</label>
-                    <input 
+            <div className= 'Journal-container'>
+             <h2 className = "Edit-label">What Would you like to Change?</h2>
+            <form className = "Journal-form" onSubmit = {this.submitUpdate}>
+                    <textarea 
                         type="textarea"
                         name="body"
                         id="body"
                         ref={this.bodyInput} 
                         defaultValue = {getContent[0].content}
+                        className = 'Entry-content'
+                        rows = "23" 
+                        cols="70"                        
 
                     />
-                    <button >Edit</button>
-            </form>
-            
+                    <button className='Edit-button' >Edit</button>
+            </form>      
             </div>
         )
 
-  }
+   }
 
 }

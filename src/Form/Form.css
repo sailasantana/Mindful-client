@@ -4,15 +4,19 @@
 .Journal-container{
     display: flex;
     flex-direction: column;
-    margin-left:30px;
-    margin-right: 90px;
-    background: url("https://i.pinimg.com/originals/d4/d5/38/d4d538153c0c33e1f1b478040c15b9d4.jpg");
+    align-items: center;
+    
   
 }
 
 .Journal-form-title{
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+    margin-top:40px;
+    font-weight: 500;
+    color:#555;
+    text-align: center;
+
+
 }
 
 .Journal-form{
@@ -33,7 +37,7 @@
     cursor: pointer;
     box-sizing: border-box;
     display: block;
-    width: 10%;
+    width: 20%;
     margin-top:15px;
     border-width: 1px;
     border-style: solid;
@@ -68,13 +72,13 @@
 }
 
 .Journal-button:hover {
-  background: #17c;
+  background: #a4f5bc;
 }
 
 
 /* Buttons' focus effect */
 .Journal-button:focus  {
-  border-color: #05a;
+  border-color: #a4f5bc;
 }
 
 .Pop-up.Pop-up-active{
@@ -111,6 +115,14 @@
     width: 610px;
     margin-bottom: 10px;
 
+}
+
+.Entry-content{
+    background-color:rgba(254, 231, 223, 0.527) ;
+}
+
+.Entry-title{
+    background-color:rgba(254, 231, 223, 0.527) ;
 }
 
 

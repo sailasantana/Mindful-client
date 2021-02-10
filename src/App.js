@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import Posts from './Entries/Entries';
 import Form from './Form/Form';
 import ReactCalendar from './Calendar/Calendar';
-import Login from './Login/Login'
-import SignUp from './Login/SignUp'
-import { Route } from 'react-router-dom'
-import Edit from './Edit-Form/Edit'
+import Login from './Login/Login';
+import SignUp from './Login/SignUp';
+import { Route } from 'react-router-dom';
+import Edit from './Edit-Form/Edit';
 import journalContext from './journal-context';
-import Scream from './Scream/scream'
-import Logout from './Login/Logout'
+import Scream from './Scream/scream';
+import Logout from './Login/Logout';
+import config from './config';
+import TokenService from './Auth-Service/token-services';
+import './App.css';
+import Stats from './Stats/stats';
+import { withRouter } from 'react-router-dom';
+
 
 
 class App extends Component {
@@ -18,6 +24,33 @@ class App extends Component {
     currentDateSelection : '',
     calendarClicked : false
  
+  }
+
+  componentDidMount(){
+    
+    let user_name = localStorage.getItem('user_name')
+    
+    this.setState({user_name:user_name})
+
+    fetch(`${config.API_ENDPOINT}/api/${user_name}`, {
+      headers: {
+        'session_token':`${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok){
+        return res.json().then(e => Promise.reject(e))
+      }
+      return res.json()
+    })
+
+    .then(posts => {
+      this.updatePostsInState(posts)
+    })
+    .catch(error => {
+      alert('You must be logged in to continue')
+      this.props.history.push('/')
+    })
   }
 
 
@@ -88,17 +121,13 @@ class App extends Component {
       <journalContext.Provider value={postValues}>
 
       <div className="App">
+      <div className ="login-view">
       <Route exact path = '/' component={Login}/>
+      </div>  
+      <div className="dashboard-view"> 
       <Route path='/dashboard' component={Logout} />
       <Route path ='/dashboard' component={ReactCalendar}/>
-      <Route
-        path='/dashboard'
-        render={(props) => (
-         <Form
-         {...props}
-         handleSubmit={this.handleSubmit}/>      
-         )}
-      />  
+      <Route path = '/dashboard' component={Stats}/>
       <Route
         path='/dashboard'
         render={(props) => (
@@ -107,11 +136,27 @@ class App extends Component {
          entryData={this.state.posts} removeEntry={this.removePost}/>      
          )}
       />
+      </div>
+      <div className = "form-view">
+      <Route
+        path='/add-entry'
+        render={(props) => (
+         <Form
+         {...props}
+         handleSubmit={this.handleSubmit}/>      
+         )}
+      /> 
+      </div> 
+
+     
       <Route path='/sign-up' component={SignUp} />
+      <div className = "edit-view">
       <Route path='/edit/:id' component={Logout} />
       <Route path='/edit/:id' component={Edit} />
-      <Route path='/scream' component={Logout} />
+      </div>
+      <div className = "scream-view">
       <Route path='/scream' component={Scream} />
+      </div>
       </div>
       </journalContext.Provider >
 
@@ -120,6 +165,6 @@ class App extends Component {
 
 }
 
-export default App;
+export default withRouter(App);
 
 

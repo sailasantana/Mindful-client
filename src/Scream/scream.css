@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+.Scream-containter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+}
+
+
+.Scream-space {
+    background-color:rgba(0, 0, 0, 0.056) ;
+    border:none;
+    border-left: 2px solid  rgb(145, 147, 226);
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.05em;
+    color: #555;
+    
+
+
+}
+
+.Scream-prompt {
+    text-align: left;
+    margin-left:310px;
+    margin-right:300px;
+}
+
+.Scream-button{
+    background: rgb(145, 147, 226);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    width: 10%;
+    margin-top:15px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+    margin-left:300px;
+}
+
+.Scream-button:hover {
+    background: #a4f5bc;
+  }
+  
+  
+  /* Buttons' focus effect */
+  .Scream-button:focus  {
+    border-color: #a4f5bc;
+  }
+
+  .Poof-animation, .second{
+      display: block;
+  }
+
+  .second {
+      margin-right:700px;
+      text-decoration: none;
+
+
+  }
+
+  .Poof-animation{
+      margin-left:300px;
+      margin-bottom: 100px;
+  }

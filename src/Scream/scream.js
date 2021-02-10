@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './scream.css';
 
 
 export default class Scream extends React.Component {
@@ -31,6 +32,7 @@ export default class Scream extends React.Component {
         })
 
 
+
     }
     
 
@@ -38,30 +40,39 @@ export default class Scream extends React.Component {
         const { body } = this.state;
 
         return(
-            <div>
+            <div className = "Scream-containter">
                 {this.state.clicked == false ?
                 <div>
+                <div className = "Scream-prompt">    
                 <p>Use this to toss off the words you’d otherwise tweet, write in your journal, or leave unarticulated and bottled up deep inside the folds of your brain
                     Type in your feelings, hit the “release" button, and watch your words disappear into the digital abyss. 
                 </p>
                 <br/>
-                <p>This is a safe space - no one can see you or hear you in here.</p>
+                <p>These moments will go unrecorded so that you never have to come back to them again.
+                    No one can see you or hear you in here.
+                </p>
+                </div>
                 
                 <form onSubmit = {this.handleRelease}>
-                <textarea onChange={this.handleChange} name="body" id="body" value={body} rows="20" cols="100" required>
+                <textarea 
+                className = 'Scream-space' 
+                onChange={this.handleChange} 
+                name="body" id="body" 
+                value={body} 
+                rows="10" 
+                cols="100" 
+                placeholder="What ails you?"
+                >
                 </textarea>
-                <button>Release</button>
+                <button className = "Scream-button">Release</button>
                 </form>
-                <Link to = '/dashboard'>Back</Link> 
                 </div>
                   : null                  
                 }
                    {this.state.clicked ? 
                     <div>
-                    <img src = "https://media1.tenor.com/images/a1b6c954f41993410e4e2bf015e13fed/tenor.gif?itemid=4674557"/> 
-                    <button>
-                     <Link to = '/dashboard'>Back</Link> 
-                    </button>
+                    <img className = 'Poof-animation' src = "https://media0.giphy.com/media/xUA7bcJspBQvTfOne0/giphy.gif"/> 
+                    <Link className = "Scream-button second" to = '/dashboard'>Back To Dashboard</Link>
                     </div>: null}
                 </div>
         )
