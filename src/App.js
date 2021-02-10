@@ -124,19 +124,23 @@ class App extends Component {
       <div className ="login-view">
       <Route exact path = '/' component={Login}/>
       </div>  
-      <div className="dashboard-view"> 
-      <Route path='/dashboard' component={Logout} />
-      <Route path ='/dashboard' component={ReactCalendar}/>
-      <Route path = '/dashboard' component={Stats}/>
-      <Route
-        path='/dashboard'
-        render={(props) => (
-         <Posts
-         {...props}
-         entryData={this.state.posts} removeEntry={this.removePost}/>      
-         )}
-      />
-      </div>
+      {this.state.user_name ?
+            <div className="dashboard-view"> 
+            <Route path='/dashboard' component={Logout} />
+            <Route path ='/dashboard' component={ReactCalendar}/>
+            <Route path = '/dashboard' component={Stats}/>
+            <Route
+              path='/dashboard'
+              render={(props) => (
+               <Posts
+               {...props}
+               entryData={this.state.posts} removeEntry={this.removePost}/>      
+               )}
+            /> 
+            </div> : null
+      
+      }
+
       <div className = "form-view">
       <Route
         path='/add-entry'
