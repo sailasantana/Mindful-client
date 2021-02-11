@@ -34,7 +34,7 @@ import moment from 'moment';
       else {
 
         posts.map( (posts , i) => {
-            let formattedDate = moment(context.posts[i].modified).format('MM/DD/YYYY')
+            let formattedDate = moment(context.posts[i].date_modified).format('MM/DD/YYYY')
              array.push(formattedDate)
              return;
 

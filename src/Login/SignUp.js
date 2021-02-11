@@ -50,9 +50,9 @@ export default class SignUp extends React.Component {
                     window.location=`/`;
                     window.alert('Registered successfully. Please log in with your new credentials.');
                 })
-                .catch(res => {
+                .catch(err => {
                     this.setState({
-                        error: window.alert('An unexpected error occurred. Please try again later.')
+                        error: err.error
                     });
                 });
         }    
@@ -71,6 +71,9 @@ export default class SignUp extends React.Component {
                     <p><input type="password" placeholder="Password" name= 'password' id= 'password' className = 'password'/></p>
                     <button className = 'sign-up-button'>Sign Up</button>
                 </form>
+                {this.state.error ?
+                    <div>{this.state.error}</div> : null
+                    }
             </div>
 
 

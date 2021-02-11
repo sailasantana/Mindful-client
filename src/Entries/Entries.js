@@ -53,10 +53,13 @@ class Posts extends React.Component {
         const date = this.context.currentDateSelection
         const formattedDate = moment(date).format('MM/DD/YYYY');
      
-
+        console.log(this.context.posts)
+        console.log(formattedDate,typeof(formattedDate))
         let filteredEntries = this.context.posts.filter( (posts , i) => 
-        formattedDate == moment(this.context.posts[i].modified).format('MM/DD/YYYY'))
+        formattedDate == moment(this.context.posts[i].date_modified).format('MM/DD/YYYY'))
         console.log(filteredEntries)
+
+
 
 
 

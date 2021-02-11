@@ -120,12 +120,8 @@ class App extends Component {
     return (
       <journalContext.Provider value={postValues}>
 
-      <div className="App">
-      {/* <div className ="login-view"> */}
-      <Route exact path = '/' component={Login}/>
-      {/* </div>  
-      {this.state.user_name ?
-            <div className="dashboard-view">  */}
+      <div className="App">   
+            <Route exact path = '/' component={Login}/>   
             <Route path='/dashboard' component={Logout} />
             <Route path ='/dashboard' component={ReactCalendar}/>
             <Route path = '/dashboard' component={Stats}/>
@@ -137,31 +133,20 @@ class App extends Component {
                entryData={this.state.posts} removeEntry={this.removePost}/>      
                )}
             /> 
-            {/* </div> : null */}
-      
-      {/* } */}
-
-      {/* <div className = "form-view"> */}
-      <Route
-        path='/add-entry'
-        render={(props) => (
-         <Form
-         {...props}
-         handleSubmit={this.handleSubmit}/>      
-         )}
-      /> 
-      {/* </div>  */}
-
-     
-      <Route path='/sign-up' component={SignUp} />
-      {/* <div className = "edit-view"> */}
-      <Route path='/edit/:id' component={Logout} />
-      <Route path='/edit/:id' component={Edit} />
-      {/* </div>
-      <div className = "scream-view"> */}
-      <Route path='/scream' component={Scream} />
-      {/* </div> */}
-      </div>
+        
+           <Route
+            path='/add-entry'
+            render={(props) => (
+            <Form
+            {...props}
+            handleSubmit={this.handleSubmit}/>      
+            )}
+          />     
+          <Route path='/sign-up' component={SignUp} />     
+          <Route path='/edit/:id' component={Logout} />
+          <Route path='/edit/:id' component={Edit} />   
+          <Route path='/scream' component={Scream} />  
+        </div>
       </journalContext.Provider >
 
     );

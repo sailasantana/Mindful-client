@@ -49,11 +49,12 @@ export default class Stats extends React.Component {
 
     let posts = this.context.posts 
 
+
     let maxDateStat = () => {
 
         let array = [];
         
-        if(!posts){
+        if(posts.length == 0){
             return 'N/A';
         }       
         else {
