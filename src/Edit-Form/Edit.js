@@ -4,6 +4,7 @@ import journalContext from '../journal-context';
 import config from '../config';
 import TokenService from '../Auth-Service/token-services';
 import './Edit.css';
+import Logout from '../Login/Logout';
 
 export default class Edit extends React.Component {
 
@@ -95,6 +96,7 @@ export default class Edit extends React.Component {
         
         return (
             <div className= 'Journal-container'>
+             <Logout />   
              <h2 className = "Edit-label">What Would you like to Change?</h2>
             <form className = "Journal-form" onSubmit = {this.submitUpdate}>
                     <textarea 

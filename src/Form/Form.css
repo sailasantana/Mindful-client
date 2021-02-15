@@ -5,7 +5,147 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: url("https://i.pinimg.com/originals/d4/d5/38/d4d538153c0c33e1f1b478040c15b9d4.jpg");
+    min-height: 100vh; 
+    border: 1px solid white;
+    margin-top:0px;   
+  
+}
+
+.Journal-form-title{
+    font-family: 'Open Sans', sans-serif;
+    margin-top:40px;
+    font-weight: 500;
+    color:#555;
+    text-align: center;
+
+
+}
+
+.Journal-form{
+    display:block;
+
+}
+
+
+.Entry-title, .Entry-content{
+    border:none;
+    border-left: 2px solid  rgb(145, 147, 226);
+   
+  
+}
+
+.Journal-button {
+    background: rgb(145, 147, 226);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    width: 20%;
+    margin-top:15px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;  
     
+}
+
+
+.Pop-up-button {
+    border-color: transparent;
+    background: transparent;
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    width: 2.5%;
+    border-width: 1px;
+    border-style: solid;
+    outline: 0;
+    font-size: 1.2em; 
+    font-weight: bold;
+    
+    
+}
+
+
+
+.Journal-button:hover {
+  background: #a4f5bc;
+}
+
+
+/* Buttons' focus effect */
+.Journal-button:focus  {
+  border-color: #a4f5bc;
+}
+
+.Pop-up.Pop-up-active{
+    margin-top:20px;
+    border: 2px solid rgb(145, 147, 226);
+    border-radius:10px;
+    padding:20px;
+    width:50%;
+    font-size: 1.0em; 
+    font-weight: 350;
+    font-family: 'Open Sans', sans-serif;
+    background: rgb(145, 147, 226);
+    color:rgb(255, 255, 255);
+
+
+}
+
+.Prompt-1{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+
+}
+
+.Entry-title, .Entry-content{
+    display:block;
+    box-sizing: border-box;
+    border-width: 1px;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+    
+}
+.Entry-title{
+    margin-bottom: 10px;
+    width: 420px;
+
+}
+
+.Entry-content{
+    background-color:rgba(254, 231, 223, 0.527) ;
+    width: 420px;
+    height:500px;
+}
+
+.Entry-title{
+    background-color:rgba(254, 231, 223, 0.527) ;
+}
+
+
+
+/*tablet & desktop media query*/
+@media screen and (min-width: 768px) {  
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+.Journal-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("https://i.pinimg.com/originals/d4/d5/38/d4d538153c0c33e1f1b478040c15b9d4.jpg");
+    min-height: 100vh; 
+    border: 1px solid white;
+    margin-top:0px;   
   
 }
 
@@ -63,7 +203,8 @@
     font-size: 1.2em; 
     font-weight: bold;
     text-align: center;
-    margin-left: 360px;
+    margin-left: 210px;
+
     
 }
 
@@ -112,19 +253,47 @@
     font-size: 0.95em;
 }
 .Entry-title{
-    width: 610px;
+    width: 620px;
     margin-bottom: 10px;
 
 }
 
 .Entry-content{
     background-color:rgba(254, 231, 223, 0.527) ;
+    width: 620px;
+    height:500px;
 }
 
 .Entry-title{
     background-color:rgba(254, 231, 223, 0.527) ;
 }
 
+  }
 
 
 
+
+
+
+  @media screen and (min-width: 1025px) {
+
+    .Pop-up-button {
+        border-color: transparent;
+        background: transparent;
+        color:rgb(255, 255, 255);
+        cursor: pointer;
+        box-sizing: border-box;
+        display: block;
+        width: 2.5%;
+        border-width: 1px;
+        border-style: solid;
+        outline: 0;
+        font-size: 1.2em; 
+        font-weight: bold;
+        text-align: center;
+        margin-left: 410px;
+        
+    }
+
+
+  }

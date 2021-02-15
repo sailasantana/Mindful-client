@@ -7,6 +7,9 @@ import Entry from './Entry'
 //import Edit from '../Edit-Form/Edit'
 import TokenService from '../Auth-Service/token-services'
 import config from '../config'
+import Stats from '../Stats/stats'
+import ReactCalendar from '../Calendar/Calendar'
+import LogOut from '../Login/Logout'
 
 
 
@@ -83,7 +86,10 @@ class Posts extends React.Component {
         })
 
         return(
-         <div>  
+         <div className = "Entries-container">  
+         <LogOut />    
+         <ReactCalendar /> 
+         <Stats />    
          {this.context.clicked && filteredEntries ?
          <div>
             <h2 className='Entry-all-title'>{formattedDate}</h2>

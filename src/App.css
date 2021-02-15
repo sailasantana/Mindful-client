@@ -1,12 +1,4 @@
-/* .dashboard-view{
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: rgb(174, 175, 210);
-  border: 1px solid rgb(174, 175, 210);
-  margin-top:0px;
-
-}
+/* 
 
 .login-view{  
   min-height: 100vh;
@@ -14,13 +6,7 @@
 
 }
 
-.form-view {
-  background: url("https://i.pinimg.com/originals/d4/d5/38/d4d538153c0c33e1f1b478040c15b9d4.jpg");
-  min-height: 100vh; 
-  border: 1px solid white;
-  margin-top:0px;
 
-}
 
 .edit-view{
   background: url("https://i.pinimg.com/originals/d4/d5/38/d4d538153c0c33e1f1b478040c15b9d4.jpg");
@@ -35,4 +21,4 @@
   min-height: 100vh;
   border: 1px solid black;
   margin-top:0px;
-} */
+}  */

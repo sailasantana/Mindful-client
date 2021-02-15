@@ -1,6 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
+.Entries-container{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(174, 175, 210);
+    min-height: 100vh;
+  
+}
+
+
 .Entry-delete-button{
     background: rgb(145, 147, 226);
     border-color: transparent;

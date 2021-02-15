@@ -122,10 +122,7 @@ class App extends Component {
 
       <div className="App">   
             <Route exact path = '/' component={Login}/>   
-            <Route path='/dashboard' component={Logout} />
-            <Route path ='/dashboard' component={ReactCalendar}/>
-            <Route path = '/dashboard' component={Stats}/>
-            <Route
+\            <Route
               path='/dashboard'
               render={(props) => (
                <Posts
@@ -143,7 +140,6 @@ class App extends Component {
             )}
           />     
           <Route path='/sign-up' component={SignUp} />     
-          <Route path='/edit/:id' component={Logout} />
           <Route path='/edit/:id' component={Edit} />   
           <Route path='/scream' component={Scream} />  
         </div>
