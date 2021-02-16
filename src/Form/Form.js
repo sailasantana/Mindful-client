@@ -160,7 +160,8 @@ class Form extends Component {
                 <div className = {className}> 
                     {this.state.submitted ? 
                     <div>
-                    <h3 className='Prompt-1'>Great job getting a Moment in! <button className='Pop-up-button' onClick = {this.handleClick}>x</button></h3>
+                    <button className='Pop-up-button' onClick = {this.handleClick}>x</button>
+                    <h3 className='Prompt-1'>Great job getting a Moment in! </h3>
                     <p>"{quote}"</p>
                     <p>You can now view this entry in your dashboard</p>
                     </div> : null}

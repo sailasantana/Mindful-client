@@ -61,12 +61,14 @@
     cursor: pointer;
     box-sizing: border-box;
     display: block;
-    width: 2.5%;
+    width: 1.0%;
+    height: 1.0%;
     border-width: 1px;
     border-style: solid;
     outline: 0;
     font-size: 1.2em; 
     font-weight: bold;
+    float:right;
     
     
 }
@@ -88,7 +90,7 @@
     border: 2px solid rgb(145, 147, 226);
     border-radius:10px;
     padding:20px;
-    width:50%;
+    width:80%;
     font-size: 1.0em; 
     font-weight: 350;
     font-family: 'Open Sans', sans-serif;
@@ -227,7 +229,7 @@
     border: 2px solid rgb(145, 147, 226);
     border-radius:10px;
     padding:20px;
-    width:50%;
+    width:65%;
     font-size: 1.0em; 
     font-weight: 350;
     font-family: 'Open Sans', sans-serif;
@@ -293,6 +295,21 @@
         text-align: center;
         margin-left: 410px;
         
+    }
+
+    .Pop-up.Pop-up-active{
+        margin-top:20px;
+        border: 2px solid rgb(145, 147, 226);
+        border-radius:10px;
+        padding:20px;
+        width:50%;
+        font-size: 1.0em; 
+        font-weight: 350;
+        font-family: 'Open Sans', sans-serif;
+        background: rgb(145, 147, 226);
+        color:rgb(255, 255, 255);
+    
+    
     }
 
 

@@ -16,21 +16,22 @@
 
 
 .Scream-space {
+    display: flex;
     background-color:rgba(0, 0, 0, 0.056) ;
     border:none;
     border-left: 2px solid  rgb(145, 147, 226);
     font-family: 'Homemade Apple', cursive;
     font-size: 1.05em;
     color: #555;
-    
-
+    width:70%;
+    margin-left:70px;
 
 }
 
 .Scream-prompt {
     text-align: left;
-    margin-left:310px;
-    margin-right:300px;
+    margin-left:70px;
+    margin-right:70px;
 }
 
 .Scream-button{
@@ -40,7 +41,7 @@
     cursor: pointer;
     box-sizing: border-box;
     display: block;
-    width: 10%;
+    width: 20%;
     margin-top:15px;
     border-width: 1px;
     border-style: solid;
@@ -48,7 +49,7 @@
     outline: 0;
     font-family: inherit;
     font-size: 0.95em;
-    margin-left:300px;
+    margin-left:70px;
 }
 
 .Scream-button:hover {
@@ -76,3 +77,90 @@
       margin-left:300px;
       margin-bottom: 100px;
   }
+
+
+  /*tablet media query*/
+@media screen and (min-width: 768px) {
+
+    .Scream-prompt {
+        text-align: left;
+        margin-left:110px;
+        margin-right:110px;
+    }
+
+    .Scream-space {
+        display: flex;
+        background-color:rgba(0, 0, 0, 0.056) ;
+        border:none;
+        border-left: 2px solid  rgb(145, 147, 226);
+        font-family: 'Homemade Apple', cursive;
+        font-size: 1.05em;
+        color: #555;
+        width: 70%;
+        margin-left: 110px;
+
+    
+    }
+
+    .Scream-button{
+        background: rgb(145, 147, 226);
+        border-color: transparent;
+        color: #fff;
+        cursor: pointer;
+        box-sizing: border-box;
+        display: block;
+        width: 10%;
+        margin-top:15px;
+        border-width: 1px;
+        border-style: solid;
+        padding: 12px;
+        outline: 0;
+        font-family: inherit;
+        font-size: 0.95em;
+        margin-left:110px;
+    }
+    
+    
+}
+
+  /*media query for desktop*/
+@media screen and (min-width: 1025px) {
+    .Scream-prompt {
+        text-align: left;
+        margin-left:310px;
+        margin-right:300px;
+    }
+    .Scream-space {
+        display: flex;
+        align-self: center;
+        background-color:rgba(0, 0, 0, 0.056) ;
+        border:none;
+        border-left: 2px solid  rgb(145, 147, 226);
+        font-family: 'Homemade Apple', cursive;
+        font-size: 1.05em;
+        color: #555;
+        margin-left: 300px;
+        width:60%
+        
+    
+    }
+
+    .Scream-button{
+        background: rgb(145, 147, 226);
+        border-color: transparent;
+        color: #fff;
+        cursor: pointer;
+        box-sizing: border-box;
+        display: block;
+        width: 10%;
+        margin-top:15px;
+        border-width: 1px;
+        border-style: solid;
+        padding: 12px;
+        outline: 0;
+        font-family: inherit;
+        font-size: 0.95em;
+        margin-left:300px;
+    }
+
+}
