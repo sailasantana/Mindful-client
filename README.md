@@ -1,70 +1,79 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Mind Your Moment
 
-## Available Scripts
+A minfulness app that helps you build a daily journaling habit.
 
-In the project directory, you can run:
+Live : https://mindful.sailasantana.vercel.app/
 
-### `yarn start`
+# Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Calendar that stores your journal entries.
+* Add an entry form
+* Edit an entry form
+* Add an unrecorded entry form (called 'Scream into the Void')
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+# Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Landing (Login) page:
 
-### `yarn build`
+![Landing](screenshots/login.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Sign Up :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Signup](screenshots/signup.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Dashboard 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Click on calendar dates associated with blue ticks to see past entries
+### Click on + to add today's entry 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Dashboard](screenshots/dashboard.png)
+![Dashboard2](screenshots/dashboard2.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Add An Entry 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Add](screenshots/add.png)
 
-## Learn More
+## Edit An Entry 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Edit](screenshots/edit.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Environment Set Up
 
-### Analyzing the Bundle Size
+* Setup your own postgress server
+* Run the sql scripts in migration folder to build your table structure. Server repo : https://github.com/sailasantana/journal-server
+* Create a .env file in your server folder which contains the path to your database as well as a jwt secret
+* Run your project with : ```npm run dev```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+# Run Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* To run all tests, run : ```npm test```
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+# Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Front-End
+* React
+* React Hooks 
+* React-Router
+* HTML5 and CSS3
 
-### `yarn build` fails to minify
+## Back-End
+* Nodejs
+* PostgreSQL
+* Knex.js
+* Express.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Testing
+
+* Supertest
+* Chai
+* Mocha
+* Jest
+
