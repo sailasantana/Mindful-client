@@ -39,7 +39,7 @@ export default class Stats extends React.Component {
                 
             })
             .catch( err => {
-                console.log(err.message);
+                alert('You must be logged in to continue')
                 this.props.history.push('/')
             })
 
