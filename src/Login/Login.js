@@ -47,9 +47,12 @@ export default class LoginPage extends React.Component {
            this.context.setUserName(this.userInput.current.value) 
            TokenService.saveAuthToken(res.token);
            this.props.onvalidLogin();
+
+
            
        })
        .then(() => {
+           this.context.setPostsforStats()
            this.props.history.push('/dashboard') 
        })
        .catch(res => {
@@ -65,8 +68,9 @@ export default class LoginPage extends React.Component {
     render(){
 
         return (
-            <div class="login">   
+            <div className="login">   
             <img className = "logo" src="/logo.png" width="210" height="180"/>
+              <p className = "about-app">Mindfulness Through Daily Journaling</p>
               <div className="login-triangle"></div>
               <h2 className="login-header">Log in to continue</h2>
               <form className="login-container"  onSubmit = {this.handleJwtLoginAuth}>
@@ -74,7 +78,11 @@ export default class LoginPage extends React.Component {
                 <p><input type="password" ref={this.passInput} placeholder="Password"/></p>
                 <button type="submit" value="Log in" className='login-button'>Log In</button>
               </form>
-             <p className= 'Sign-up-prompt'><Link to ='./sign-up'>New User? Sign Up here!</Link></p> 
+             <p className= "Sign-up-prompt"><Link to ='./sign-up'>New User? Sign Up here!</Link></p> 
+             <div className = "demo-container">
+             <div>Demo Username: Thinkful</div>
+             <div>Demo Password: @Thinkful1!</div>
+             </div>
             </div>)
     }
 

@@ -17,6 +17,7 @@ import moment from 'moment';
     setDate(date);
     context.updateCurrentDate(date)
     context.setClicked(true)
+    console.log(date)
 
   }
 
@@ -49,8 +50,7 @@ import moment from 'moment';
   view === 'month' && allDates().includes(moment(date).format('MM/DD/YYYY'))  ? <img src="https://media4.giphy.com/media/Kg9JwOFEyoK75CzQSK/source.gif" width="23" height="17"/> : null
 
   return (
-    <div>
-      <h2 className = "welcome-message">Welcome Back @{context.user_name}!</h2>
+    <div className = "calendar-container">
       <Calendar  className = "calendar-table" onChange = {onChange} value = {date} maxDate= {new Date()} tileContent={customTile}/>     
     </div>
   )

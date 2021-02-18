@@ -5,8 +5,13 @@
   margin-top:0px;
 }
 
+.calendar-container{
+  display: flex;
+  justify-content: center;
+}
+
+
 .welcome-message{
-  margin-left:190px;
   padding: 0px;
   margin-top:0px;
   color:  #555;
@@ -27,14 +32,13 @@
 }
 
 .react-calendar {
-  width: 550px;
+  width: 200px;
   max-width: 100%;
   border-radius: 20px;
   line-height: 1.5em;
-  padding: 40px;
+  padding: 10px;
   color:  #555;
   background-image: url('https://blogs.ntu.edu.sg/openimagecollections/files/2015/07/Subtle-Patterns.png');
-  margin-left:100px;
   margin-top:0px;
 }
 .react-calendar--doubleView {
@@ -156,7 +160,6 @@
 /*tablet media query*/
 @media screen and (min-width: 768px) {
   .welcome-message{
-    margin-left:290px;
     padding: 0px;
     margin-top:0px;
     color:  #555;
@@ -174,7 +177,6 @@
     padding: 40px;
     color:  #555;
     background-image: url('https://blogs.ntu.edu.sg/openimagecollections/files/2015/07/Subtle-Patterns.png');
-    margin-left:200px;
     margin-top:0px;
   }
 
@@ -195,15 +197,20 @@
   }
 
   .react-calendar {
-    width: 550px;
+    width: 650px;
     max-width: 100%;
     border-radius: 20px;
     line-height: 1.5em;
-    padding: 40px;
+    padding: 60px;
     color:  #555;
     background-image: url('https://blogs.ntu.edu.sg/openimagecollections/files/2015/07/Subtle-Patterns.png');
-    margin-left:400px;
     margin-top:0px;
   }
+
+  .calendar-container{
+    display: flex;
+    justify-content: center;
+  }
+  
 
 }

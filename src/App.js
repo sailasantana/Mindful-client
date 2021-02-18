@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import Posts from './Entries/Entries';
 import Form from './Form/Form';
-import ReactCalendar from './Calendar/Calendar';
 import Login from './Login/Login';
 import SignUp from './Login/SignUp';
 import { Route } from 'react-router-dom';
 import Edit from './Edit-Form/Edit';
 import journalContext from './journal-context';
 import Scream from './Scream/scream';
-import Logout from './Login/Logout';
 import config from './config';
 import TokenService from './Auth-Service/token-services';
 import './App.css';
-import Stats from './Stats/stats';
 import { withRouter } from 'react-router-dom';
 
 
@@ -48,7 +45,6 @@ class App extends Component {
       this.updatePostsInState(posts)
     })
     .catch(error => {
-      alert('You must be logged in to continue')
       this.props.history.push('/')
     })
   }
@@ -56,6 +52,32 @@ class App extends Component {
 
   updateCurrentDate = date => {
     this.setState({currentDateSelection: date})
+  }
+
+
+  setPostsforStats = () => {
+
+    let user_name = localStorage.getItem('user_name')
+    
+    fetch(`${config.API_ENDPOINT}/api/${user_name}`, {
+      headers: {
+        'session_token':`${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok){
+        return res.json().then(e => Promise.reject(e))
+      }
+      return res.json()
+    })
+
+    .then(posts => {
+      this.setState({posts : posts})
+    })
+    .catch(error => {
+      this.props.history.push('/')
+    })
+
   }
 
 
@@ -109,7 +131,8 @@ class App extends Component {
       updateCurrentDate : this.updateCurrentDate,
       currentDateSelection : this.state.currentDateSelection,
       setClicked : this.setClicked,
-      clicked : this.state.calendarClicked
+      clicked : this.state.calendarClicked,
+      setPostsforStats : this.setPostsforStats
     
 
 

@@ -36,6 +36,7 @@ export default class Stats extends React.Component {
                 this.setState({
                     message: responseJson.message
                 })
+                t
             })
             .catch( err => {
                 console.log(err.message);
@@ -78,7 +79,7 @@ export default class Stats extends React.Component {
 
         return(
             <div className = 'stat-container'>
-                {this.context.posts ? <div className = "stat one"><FontAwesomeIcon icon="coffee" />
+                {this.context.posts ? <div className = "stat one">
                 <span className ='stat-title'>Last Moment</span> <span className ='stat-1'>{statsToDisplay}</span></div>: null }
                 {this.context.posts ? <div className = "stat two"><span className ='stat-title'>Moments</span><span className ='stat-2'> {posts.length}</span></div>: null }
                 <div className = "stat-button">

@@ -40,7 +40,7 @@ class Posts extends React.Component {
                 })
             })
             .catch( err => {
-                console.log(err.message);
+                alert('You must be logged in to continue')
                 this.props.history.push('/')
             })
 
@@ -56,11 +56,8 @@ class Posts extends React.Component {
         const date = this.context.currentDateSelection
         const formattedDate = moment(date).format('MM/DD/YYYY');
      
-        console.log(this.context.posts)
-        console.log(formattedDate,typeof(formattedDate))
         let filteredEntries = this.context.posts.filter( (posts , i) => 
         formattedDate == moment(this.context.posts[i].date_modified).format('MM/DD/YYYY'))
-        console.log(filteredEntries)
 
 
 
@@ -87,12 +84,14 @@ class Posts extends React.Component {
 
         return(
          <div className = "Entries-container">  
-         <LogOut />    
-         <ReactCalendar /> 
-         <Stats />    
+         <LogOut history = {this.props.history}/>   
+         <div className = "Welcome-container">
+         <ReactCalendar history = {this.props.history}/> 
+         <Stats history = {this.props.history} />    
+         </div> 
          {this.context.clicked && filteredEntries ?
          <div>
-            <h2 className='Entry-all-title'>{formattedDate}</h2>
+            <h2 className="Entry-all-title">{formattedDate}</h2>
             <div>{entries}</div>
          </div> 
          : null}

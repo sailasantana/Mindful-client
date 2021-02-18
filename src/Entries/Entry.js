@@ -38,8 +38,8 @@ export default class Entry extends React.Component {
               })
           })
           .catch( err => {
-              console.log(err.message);
-              this.props.history.push('/')
+            alert('You must be logged in to continue')
+            this.props.history.push('/')
           })
 
   }
@@ -92,7 +92,7 @@ export default class Entry extends React.Component {
             className='Entry-edit-button' 
             type='button'
             onClick={this.handleClickEdit}>
-            <Link to={`/edit/${id}`}>
+            <Link  className = "Edit-button-text" to={`/edit/${id}`}>
             {' '}
             Edit
             </Link>

@@ -15,7 +15,9 @@ export default class Logout extends React.Component {
 
     render(){
         return(
-            <button className = 'logout-button' onClick = {this.handleLogOut}>Log Out</button>
+            <div className = "logout-container">
+            <button className = "logout-button" onClick = {this.handleLogOut}>Log Out</button>
+            </div>
         )
     }
 

@@ -11,9 +11,8 @@ export default React.createContext({
     currentDateSelection: '',
     updateCurrentDate : () => {},
     setClicked: () => {},
-    clicked: false
+    clicked: false,
+    setPostsforStats: () => {}
   
-
-
 
 })

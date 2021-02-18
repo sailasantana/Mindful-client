@@ -5,10 +5,11 @@
     display:flex;
     justify-content: center;
     flex-direction: column;
-    background-color: rgb(174, 175, 210);
+    background-image: linear-gradient(lightblue, rgb(119, 115, 175));
     min-height: 100vh;
   
 }
+
 
 
 .Entry-delete-button{
@@ -18,7 +19,7 @@
     cursor: pointer;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    width: 7.7%;
+    width: 20.7%;
     border-width: 1px;
     border-style: solid;
     padding: 12px;
@@ -28,11 +29,11 @@
     display: inline;
 }
 .Entry-delete-button:hover, .Entry-edit-button:hover {
-    background: #17c;
+    background: #a4f5bc;
   }
   
 .Entry-delete-button:focus, .Entry-edit-button:focus {
-    border-color: #05a;
+    border-color: #a4f5bc;
   }
 
 .Entry-edit-button{
@@ -40,11 +41,10 @@
     text-decoration: none;
     background: rgb(145, 147, 226);
     border-color: transparent;
-    color: #fff;
     cursor: pointer;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    width: 7.5%;
+    width: 23.5%;
     border-width: 1px;
     border-style: solid;
     padding: 12px;
@@ -52,6 +52,11 @@
     font-size: 0.95em; 
     display: inline;
     
+}
+
+.Edit-button-text{
+    color: #fff;
+    text-decoration: none;
 }
 
 
@@ -63,9 +68,11 @@
 }
 
 .Entry-all-title{
+    margin-top:10px;
     margin-left:39px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
+    font-size: 30px;
 
 }
 
@@ -88,13 +95,66 @@
     margin-right:40px;
 }
 
-.Entry{
+.Entry {
+    border : 1px  transparent;
+    background-color:rgba(237, 214, 205, 0.527);
+    margin-left:20px;
+    margin-right:40px;
+    padding:20px;
+    color: #555;
+
+}
+
+
+/*tablet media query*/
+@media screen and (min-width: 768px) {
+
+
+.Entry-delete-button{
+    background: rgb(145, 147, 226);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    width: 9.7%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em; 
+    display: inline;
+    }
+
+
+.Entry-edit-button{
+    margin-left:15px;
+    text-decoration: none;
+    background: rgb(145, 147, 226);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    width: 9.5%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px;
+    outline: 0;
+    font-size: 0.95em; 
+    display: inline;
+    
+}
+
+.Entry {
     border : 1px  transparent;
     background-color:rgba(237, 214, 205, 0.527);;
     margin-right:40px;
     padding:20px;
     color: #555;
 
+}
 
 
 }
