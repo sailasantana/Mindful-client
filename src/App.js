@@ -145,7 +145,7 @@ class App extends Component {
 
       <div className="App">   
             <Route exact path = '/' component={Login}/>   
-\            <Route
+            <Route
               path='/dashboard'
               render={(props) => (
                <Posts

@@ -36,7 +36,7 @@ export default class Stats extends React.Component {
                 this.setState({
                     message: responseJson.message
                 })
-                t
+                
             })
             .catch( err => {
                 console.log(err.message);

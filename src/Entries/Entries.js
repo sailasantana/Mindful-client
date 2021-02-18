@@ -66,10 +66,11 @@ class Posts extends React.Component {
         const entries = filteredEntries.map((posts ,i) => {
 
             return (    
-                <ul className= "Entry-single">
+                <ul key={i} className= "Entry-single">
                     
-                        <li key={filteredEntries[i].id}>
+                        <li key={i}>
                             <Entry
+                                key={i}
                                 history = {this.props.history}
                                 id={filteredEntries[i].id}
                                 title={filteredEntries[i].title}
@@ -107,4 +108,3 @@ class Posts extends React.Component {
  export default Posts
 
 
-{/* <h2>{{filteredEntries} ? `Your Entries : {formattedDate}` : `No Entries`}</h2>  */}

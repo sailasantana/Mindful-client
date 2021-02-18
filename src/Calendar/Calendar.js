@@ -17,7 +17,6 @@ import moment from 'moment';
     setDate(date);
     context.updateCurrentDate(date)
     context.setClicked(true)
-    console.log(date)
 
   }
 
